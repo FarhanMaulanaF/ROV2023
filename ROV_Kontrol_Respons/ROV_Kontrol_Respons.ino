@@ -28,9 +28,11 @@ void setup() {
   
   /* Servo attach */
   gripper.attach(PIN_GRIP, 1000, 2000); // Min max servo value from calibration
+  roll_gripper.attach(PIN_ROLL_GRIP, 1000, 2000); // Min max servo value from calibration
 
   /* Hardcode the servo normal angle */
   gripper.write(RELEASE_GRIP); // Full release condition for gripper
+  roll_gripper.write(GRIP_FULL_GRIP); // Normal condition for gripper roller rotation
 
   /* Thruster attach */
   thruster1.attach(VER_PIN_A, 1000, 2000); // Using pin pwm 3 for vertical movement
@@ -62,8 +64,8 @@ void loop() {
     /* slow dive condition */
     if (READ_STICK == 'a')
     {
-      thruster1.write(1500);
-      thruster2.write(1500);
+      thruster1.write(0);
+      thruster2.write(0);
       thruster3.write(0);
       thruster4.write(0);
       thruster5.write(0);
@@ -72,22 +74,37 @@ void loop() {
     /* slow right Yaw condition */
     if (READ_STICK == 'b')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1300);
+      thruster4.write(0);
+      thruster5.write(1300);
+      thruster6.write(0);
     }
     /* slow left Yaw condition */
     if (READ_STICK == 'c')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(1300);
+      thruster5.write(0);
+      thruster6.write(1300);
     }
     /* slow floating condition */
     if (READ_STICK == 'd')
     {
-      
+      thruster1.write(1300);
+      thruster2.write(1300);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* roll right gripper */
     if (READ_STICK == 'e')
     {
-      
+      roll_gripper.write(-90);
     }
     /* full release condition*/
     if (READ_STICK == 'f')
@@ -97,7 +114,7 @@ void loop() {
     /* roll right gripper */
     if (READ_STICK == 'g')
     {
-      
+      roll_gripper.write(90);
     }
     /* half grip condition */
     if (READ_STICK == 'h')
@@ -112,105 +129,203 @@ void loop() {
     /* Shifted left slowly condition */
     if (READ_STICK == 'j')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1300);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(1300);
     }
     /* Shifted right slowly condition */
     if (READ_STICK == 'k')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(1300);
+      thruster5.write(1300);
+      thruster6.write(0);
     }
     /* Shifted back slowly condition */
     if (READ_STICK == 'l')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1300);
+      thruster4.write(1300);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* Shifted froward slowly condition */
     if (READ_STICK == 'm')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(1300);
+      thruster6.write(1300);
     }
     /* Shifted back rapidly condition */
     if (READ_STICK == 'n')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1700);
+      thruster4.write(1700);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* Shifted back slowly condition */
     if (READ_STICK == 'o')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1300);
+      thruster4.write(1300);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* Shifted froward rapidly condition */
     if (READ_STICK == 'p')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(1800);
+      thruster6.write(1800);
     }
     /* Shifted froward slowly condition */
     if (READ_STICK == 'q')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(1300);
+      thruster6.write(1300);
     }
     /* Crab right rapidly condition */
     if (READ_STICK == 'r')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(1800);
+      thruster5.write(1800);
+      thruster6.write(0);
     }
     /* Crab right slowly condition */
     if (READ_STICK == 's')
     {
-      
+        // Belum dipake karena masih belum berguna umpan yang ini
     }
     /* Crab left rapidly condition */
     if (READ_STICK == 't')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1800);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(1800);
     }
     /* Crab left slowly condition */
     if (READ_STICK == 'u')
     {
-      
+      // Belum dipake karena masih belum berguna umpan yang ini
     }
     /* fast dive condition */
     if (READ_STICK == 'v')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* slow dive condition */
     if (READ_STICK == 'w')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* fast floating condition */
     if (READ_STICK == 'x')
     {
-      
+      thruster1.write(1800);
+      thruster2.write(1800);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* slow floating condition */
     if (READ_STICK == 'y')
     {
-      
+      thruster1.write(1300);
+      thruster2.write(1300);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* fast right Yaw condition */
     if (READ_STICK == 'z')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1800);
+      thruster4.write(0);
+      thruster5.write(1800);
+      thruster6.write(0);
     }
     /* slow right Yaw condition */
     if (READ_STICK == 'A')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(1300);
+      thruster4.write(0);
+      thruster5.write(1300);
+      thruster6.write(0);
     }
     /* fast left Yaw condition */
     if (READ_STICK == 'B')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(1800);
+      thruster5.write(0);
+      thruster6.write(1800);
     }
     /* slow right Yaw condition */
     if (READ_STICK == 'Z')
     {
-      
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(1300);
+      thruster5.write(0);
+      thruster6.write(1300);
     }
     
     /* --- End of range parsing data --- */
   }
-
+  else 
+  {
+      thruster1.write(0);
+      thruster2.write(0);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
+  }
 }
