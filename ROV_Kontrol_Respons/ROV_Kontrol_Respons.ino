@@ -42,12 +42,12 @@ void setup() {
 
 
   /* Hardcode thruster zero speed */
-  thruster1.attach(ZERO_SPEED); // Make sure value of thruster horizontal is 1000
-  thruster2.attach(ZERO_SPEED); // Make sure value of thruster horizontal is 1000
-  thruster3.write(ZERO_SPEED); // Make sure value of thruster vertical is 1000
-  thruster4.write(ZERO_SPEED); // Make sure value of thruster vertical is 1000
-  thruster5.write(ZERO_SPEED); // Make sure value of thruster vertical is 1000
-  thruster6.write(ZERO_SPEED); // Make sure value of thruster vertical is 1000
+  thruster1.write(ZERO_SPEED); // Make sure thruster on stop condition
+  thruster2.write(ZERO_SPEED); // Make sure thruster on stop condition
+  thruster3.write(ZERO_SPEED); // Make sure thruster on stop condition
+  thruster4.write(ZERO_SPEED); // Make sure thruster on stop condition
+  thruster5.write(ZERO_SPEED); // Make sure thruster on stop condition
+  thruster6.write(ZERO_SPEED); // Make sure thruster on stop condition
 }
 
 void loop() {
@@ -62,7 +62,12 @@ void loop() {
     /* slow dive condition */
     if (READ_STICK == 'a')
     {
-      
+      thruster1.write(1500);
+      thruster2.write(1500);
+      thruster3.write(0);
+      thruster4.write(0);
+      thruster5.write(0);
+      thruster6.write(0);
     }
     /* slow right Yaw condition */
     if (READ_STICK == 'b')
