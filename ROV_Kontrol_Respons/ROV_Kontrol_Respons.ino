@@ -190,17 +190,17 @@ void loop() {
       
     }
     /* slow right Yaw condition */
-    if (READ_STICK == 'aa')
+    if (READ_STICK == 'A')
     {
       
     }
     /* fast left Yaw condition */
-    if (READ_STICK == 'bb')
+    if (READ_STICK == 'B')
     {
       
     }
     /* slow right Yaw condition */
-    if (READ_STICK == 'cc')
+    if (READ_STICK == 'Z')
     {
       
     }
