@@ -2,6 +2,7 @@
 
 #define SER_BAUD_RATE 2000000 // Define serial baud rate in arduino 2000000
 #define PIN_GRIP 7 // Define servo pin for arm gripper is 7
+#define PIN_ROLL_GRIP 2 // Define servo pin for arm gripper roller is 2
 #define VER_PIN_A 3 // Define thruster pin is 3
 #define VER_PIN_B 4 // Define thruster pin is 4
 #define HOR_PIN_A 5 // Define thruster pin is 5
@@ -18,6 +19,7 @@ int ZERO_SPEED = 0; // Define zero speed for thruster
 int READ_STICK = 'X'; // Initialize serial communication, initiaze as a to consider the value is char 
 
 Servo gripper; // Arm gripper using pin pwm 7
+Servo roll_gripper; // Servo for rolling the gripper 2
 Servo thruster1, thruster2, thruster3, thruster4, thruster5, thruster6; // Thruster using pin 
 
 void setup() {
@@ -62,10 +64,12 @@ void loop() {
     {
       
     }
+    /* slow right Yaw condition */
     if (READ_STICK == 'b')
     {
       
     }
+    /* slow left Yaw condition */
     if (READ_STICK == 'c')
     {
       
@@ -75,6 +79,7 @@ void loop() {
     {
       
     }
+    /* roll right gripper */
     if (READ_STICK == 'e')
     {
       
@@ -84,6 +89,7 @@ void loop() {
     {
       gripper.write(RELEASE_GRIP);
     }
+    /* roll right gripper */
     if (READ_STICK == 'g')
     {
       
@@ -98,84 +104,102 @@ void loop() {
     {
       gripper.write(GRIP_FULL_GRIP);
     }
-    /* Shifts slowly to the left condition */
+    /* Shifted left slowly condition */
     if (READ_STICK == 'j')
     {
       
     }
-    /* Shifts slowly to the right condition */
+    /* Shifted right slowly condition */
     if (READ_STICK == 'k')
     {
       
     }
+    /* Shifted back slowly condition */
     if (READ_STICK == 'l')
     {
       
     }
+    /* Shifted froward slowly condition */
     if (READ_STICK == 'm')
     {
       
     }
+    /* Shifted back rapidly condition */
     if (READ_STICK == 'n')
     {
       
     }
+    /* Shifted back slowly condition */
     if (READ_STICK == 'o')
     {
       
     }
+    /* Shifted froward rapidly condition */
     if (READ_STICK == 'p')
     {
       
     }
+    /* Shifted froward slowly condition */
     if (READ_STICK == 'q')
     {
       
     }
+    /* Crab right rapidly condition */
     if (READ_STICK == 'r')
     {
       
     }
+    /* Crab right slowly condition */
     if (READ_STICK == 's')
     {
       
     }
+    /* Crab left rapidly condition */
     if (READ_STICK == 't')
     {
       
     }
+    /* Crab left slowly condition */
     if (READ_STICK == 'u')
     {
       
     }
+    /* fast dive condition */
     if (READ_STICK == 'v')
     {
       
     }
+    /* slow dive condition */
     if (READ_STICK == 'w')
     {
       
     }
+    /* fast floating condition */
     if (READ_STICK == 'x')
     {
       
     }
+    /* slow floating condition */
+    if (READ_STICK == 'y')
+    {
+      
+    }
+    /* fast right Yaw condition */
     if (READ_STICK == 'z')
     {
       
     }
-    if (READ_STICK == 'z')
-    {
-      
-    }
+    /* slow right Yaw condition */
     if (READ_STICK == 'aa')
     {
       
     }
+    /* fast left Yaw condition */
     if (READ_STICK == 'bb')
     {
       
     }
+    /* slow right Yaw condition */
     if (READ_STICK == 'cc')
     {
       
