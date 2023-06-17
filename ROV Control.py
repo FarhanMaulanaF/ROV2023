@@ -221,16 +221,16 @@ while run:
     if xx2 < 2.5 and xx2 > 1:
       print('yaw kanan halus')
       xx2 = 0
-      ser.write('aa'.encode('utf-8'))
+      ser.write('A'.encode('utf-8'))
 
     if xx2 <= -2.5:
       print('yaw kiri tajem')
       xx2 = 0
-      ser.write('bb'.encode('utf-8'))
+      ser.write('B'.encode('utf-8'))
     if xx2 > -2.5 and xx2 < -1:
       print('yaw kiri halus')
       xx2 = 0
-      ser.write('cc'.encode('utf-8'))
+      ser.write('C'.encode('utf-8'))
 
   #event handler
   for event in pygame.event.get():
